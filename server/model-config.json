@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "dockermysql"
+  },
+  "AccessToken": {
+    "dataSource": "dockermysql",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "dockermysql",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "dockermysql",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "dockermysql",
+    "public": false
+  },
+  "Drink": {
+    "dataSource": "dockermysql",
+    "public": true
+  },
+  "Reviewer": {
+    "dataSource": "dockermysql",
+    "public": true
+  },
+  "Rating": {
+    "dataSource": "dockermysql",
+    "public": true
+  },
+  "Favourite": {
+    "dataSource": "dockermysql",
+    "public": true
+  }
+}
