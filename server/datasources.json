@@ -4,8 +4,8 @@
     "connector": "memory"
   },
   "dockermysql": {
-    "host": "localhost",
-    "port": 6603,
+    "host": "mysql",
+    "port": 3306,
     "url": "",
     "database": "loopback",
     "password": "root",
