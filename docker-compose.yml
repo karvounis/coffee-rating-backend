@@ -11,18 +11,5 @@ services:
       - ./.db/mysql:/var/lib/mysql
     expose:
       - "3306"
-#    healthcheck:
-#      test: mysqladmin -uroot -ppassword ping
-#      interval: 2s
-#      timeout: 5s
-#      retries: 30
     ports:
       - "6603:3306"
-#  loopback:
-#    build:
-#      context: .
-#    ports:
-#      - "3000:3000"
-#    depends_on:
-#      mysql:
-#        condition: service_healthy
