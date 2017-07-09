@@ -1,21 +1,28 @@
-version: '2'
+version: '2.1'
 
 services:
   mysql:
-        build:
-            context: ./docker_mysql
-            args:
-                - MYSQL_DATABASE=loopback
-                - MYSQL_ROOT_PASSWORD=root
-        volumes:
-            - ./.db/mysql:/var/lib/mysql
-        expose:
-            - "3306"
-  loopback:
-    build: .
-    environment:
-      MYSQL_URL: mysql://root:root@mysql:3306/loopback
+    build:
+      context: ./docker_mysql
+      args:
+        - MYSQL_DATABASE=loopback
+        - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./.db/mysql:/var/lib/mysql
+    expose:
+      - "3306"
+#    healthcheck:
+#      test: mysqladmin -uroot -ppassword ping
+#      interval: 2s
+#      timeout: 5s
+#      retries: 30
     ports:
-      - "3000:3000"
-    links:
-      - mysql
+      - "6603:3306"
+#  loopback:
+#    build:
+#      context: .
+#    ports:
+#      - "3000:3000"
+#    depends_on:
+#      mysql:
+#        condition: service_healthy
